@@ -65,8 +65,8 @@ describe("if there are words guessed", ()=>{
         const guessedWordsNode = await findByTestAttr(wrapper, "guessed-words");
         expect(guessedWordsNode.length).toBe(1)
     });
-    test("correct number of guessed words",  ()=>{
-        const guessedWordsNodes =  findByTestAttr(wrapper, "guessed-word");
+    test("correct number of guessed words",async  ()=>{
+        const guessedWordsNodes =await  findByTestAttr(wrapper, "guessed-word");
         expect(guessedWordsNodes.length).toBe(guessedWords.length)
     });
 
