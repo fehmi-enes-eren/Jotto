@@ -8,7 +8,7 @@ function App() {
     <div className="container">
       <h1>Jotto</h1>
       <Congrats success={true} />
-      <GuessedWord guessedWords={[{guessedWord: "agile", letterMatchCount: 3}]} />
+      <GuessedWord guessedWords={[{guessedWord: "agile", letterMatchCount: 3},{guessedWord: "train", letterMatchCount: 2}]} />
     </div>
   );
 }

@@ -5,11 +5,15 @@ import Input from "./Input";
 
 
 
-const setup = ()=>shallow(<Input />)
+const setup = (secretWord="party")=>shallow(<Input secretWord={secretWord}/>)
 
 
-test('renders without an error', () => {
+test('renders without an error',async () => {
     const wrapper = setup();
-    const inputComponent = findByTestAttr(wrapper, "component-input");
+    const inputComponent = await findByTestAttr(wrapper, "component-input");
     expect(inputComponent.length).toBe(1);
 });
+
+test("does not throw warning with expected props", ()=>{
+    checkProps(Input, {secretWord: "party"});
+})
