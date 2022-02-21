@@ -2,7 +2,6 @@ import React from "react";
 import { shallow } from "enzyme";
 import { findByTestAttr, checkProps } from "../test/testUtils";
 import GuessedWord from "./GuessedWord";
-import propTypes from "prop-types";
 
 
 const defaultProps = {
@@ -19,6 +18,7 @@ const setup = (props={})=>{
     const setupProps = {...defaultProps, ...props}
     return shallow(<GuessedWord {...setupProps}/>)
 }
+
 
 test("does not throw warning with expected props", ()=> {
     checkProps(GuessedWord, defaultProps)
@@ -69,5 +69,4 @@ describe("if there are words guessed", ()=>{
         const guessedWordsNodes =await  findByTestAttr(wrapper, "guessed-word");
         expect(guessedWordsNodes.length).toBe(guessedWords.length)
     });
-
 })
