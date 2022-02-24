@@ -1,8 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function Input({secretWord}) {
-    const [currentGuess, setCurrentGuess] = React.useState()
+export default function Input({success, secretWord}) {
+    const [currentGuess, setCurrentGuess] = React.useState();
+
+    if( success ){
+        return <div data-test="component-input" />
+    }
+
+    const HandleClick = (e) => {
+        e.preventDefault(); // this will throw an error if you dont declare in tests.
+        setCurrentGuess("");
+        // TODO: update guessedWords
+        // TODO: check against secretWord and update success id needed
+    }
   return (
     <div data-test="component-input">
         <form className='form-inline'>
@@ -15,7 +26,7 @@ export default function Input({secretWord}) {
                 onChange={(e)=>{setCurrentGuess(e.target.value)}} 
             />
 
-            <button data-test="submit-button" className="btn btn-primary mb-2">
+            <button data-test="submit-button" className="btn btn-primary mb-2" onClick={HandleClick}>
                 Submit
             </button>
         </form>

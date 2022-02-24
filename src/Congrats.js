@@ -8,9 +8,9 @@ import PropTypes from 'prop-types';
  * @returns {JSX.Element} - Rendered compononet (or null if "success" prop is false)
  */
 
-export default function Congrats(props) {
+export default function Congrats({success}) {
 
-    if(props.success){
+    if(success){
     return (
         <div data-test="component-congrats" className='alert alert-success'>
             <span data-test="congrats-message">
