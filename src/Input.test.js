@@ -5,6 +5,16 @@ import Input from "./Input";
 
 
 
+// mock entire module for destructuring useState on import /////
+// const mockSetCurrentGuess = jest.fn();
+// jest.mock("react",()=>({
+//     ...jest.requireActual("react"),
+//     useState: (initialState) =>[initialState, mockSetCurrentGuess]
+// }))
+
+
+
+
 const setup = (secretWord="party")=>shallow(<Input secretWord={secretWord}/>)
 
 
