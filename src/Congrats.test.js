@@ -17,6 +17,10 @@ const setup = (props={})=>{
     return shallow(<Congrats {...setupProps}/>)
 }
 
+test("does not throw warning with expected props", ()=> {
+    checkProps(Congrats, defaultProps);
+});
+
 
 test("renders without an error", async ()=>{
     const wrapper = setup({success: false});
@@ -36,7 +40,3 @@ test("renders non-empty congrats message when 'success' is true",async ()=>{
     expect(congratMessage.text().length).not.toBe(0)
 })
 
-test("does not throw warning with expected props", ()=>{
-    const expectedProps = {succes: false};
-    checkProps(Congrats, expectedProps)
-})

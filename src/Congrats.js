@@ -29,5 +29,5 @@ export default function Congrats({success}) {
 
 
 Congrats.propTypes = {
-    success: PropTypes.bool.isRequired,
+    success: PropTypes.bool.isRequired,    
 }
