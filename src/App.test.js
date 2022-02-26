@@ -14,3 +14,4 @@ test('renders without an error',async () => {
   const appComponent = await findByTestAttr(wrapper, "component-app");
   expect(appComponent).toHaveLength(1)
 });
+

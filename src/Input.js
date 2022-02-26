@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { getLetterMatchCount } from "./helpers"
 
 export default function Input({success, secretWord}) {
     const [currentGuess, setCurrentGuess] = React.useState();
+
 
     if( success ){
         return <div data-test="component-input" />
@@ -11,9 +13,11 @@ export default function Input({success, secretWord}) {
     const HandleClick = (e) => {
         e.preventDefault(); // this will throw an error if you dont declare in tests.
         setCurrentGuess("");
+        //setGuessedWord(currentGuess)
         // TODO: update guessedWords
         // TODO: check against secretWord and update success id needed
     }
+    
   return (
     <div data-test="component-input">
         <form className='form-inline'>
