@@ -1,9 +1,10 @@
-import React, {useState} from "react"
+import React, {useState, useEffect} from "react"
 import './App.css';
 import Congrats from "./Congrats";
 import GuessedWords from "./GuessedWords";
 import Input from './Input';
-import { getLetterMatchCount } from "./helpers"
+import { getLetterMatchCount } from "./helpers";
+import { getSecretWord } from "./actions"
 
 function App() {
   const [guessedWords, setGuessedWords] = useState([]);
@@ -17,7 +18,11 @@ function App() {
   //       setGuessedWords([...guessedWords, {guessedWord: guessedWord, letterMatchCount: count}]);
   //   }
     
-  // },[guessedWord])
+  // },[guessedWord]);
+
+  useEffect(()=>{
+    getSecretWord();
+  },[])
 
   return (
     <div data-test="component-app" className="container">
