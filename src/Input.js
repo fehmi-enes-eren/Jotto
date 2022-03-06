@@ -6,7 +6,6 @@ import { useSelector } from 'react-redux';
 export default function Input({secretWord}) {
     const [currentGuess, setCurrentGuess] = React.useState();
     const success = useSelector(state=>state.success);
-    console.log(success)
 
 
     if( success ){
