@@ -1,7 +1,9 @@
 import { mount } from "enzyme";
-import { findByTestAttr } from "../test/testUtils"
+import { findByTestAttr, storeFactory } from "../test/testUtils"
 import App from './App'; // anywhere in the app if the functions calls, it will go directly to MockedFunction
 import { getSecretWord as mockGetSecretWord } from "./actions";
+import { Provider } from "react-redux";
+
 
 
 // activate global mock to make sure getSecretWord doesn't make network calls
@@ -16,8 +18,9 @@ jest.mock("./actions");
  */
 
 const setup = () => {
-  // use mount instead shallow, because useEffect not called on "Shallow"
-  return mount(<App />)
+  // use mount instead shallow, because useEffect not called on "Shallow";
+  const store = storeFactory();
+  return mount(<Provider store={store}><App /></Provider>)
 };
 
 test('renders without an error',async () => {

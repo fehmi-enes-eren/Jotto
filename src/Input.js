@@ -1,9 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { getLetterMatchCount } from "./helpers"
+import { useSelector } from 'react-redux';
 
-export default function Input({success, secretWord}) {
+
+export default function Input({secretWord}) {
     const [currentGuess, setCurrentGuess] = React.useState();
+    const success = useSelector(state=>state.success);
+    console.log(success)
 
 
     if( success ){
